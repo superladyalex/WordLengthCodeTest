@@ -17,3 +17,7 @@ I'm using IntelliJ which can be downloaded through this link but any IDE (or non
 - InteliJ CE https://www.jetbrains.com/idea/download/
  
  
+
+### Assumptions
+1) Added secondary sort to be alphabetical 
+2) Removed non-alphanumeric chars so those are not counted in word length

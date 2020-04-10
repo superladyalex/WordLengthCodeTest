@@ -12,7 +12,8 @@ public class WordLength {
     }
 
     public static String getLongestWord(String input) {
-        String[] arrayOfString = input.split(" ");
+        String cleanString = input.replaceAll("[^a-zA-Z0-9]", " ");
+        String[] arrayOfString = cleanString.split(" ");
 
         List<String> list = Arrays.asList(arrayOfString);
         list.sort(Comparator.comparing(String::length).reversed().thenComparing(String::compareTo));

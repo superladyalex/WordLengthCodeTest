@@ -43,4 +43,15 @@ public class WordLengthTest {
         assertEquals("asdfghj", result);
     }
 
+    @Test
+    public void specialCharsNotCounted() {
+        String result = getLongestWord("@#@$@#$@%@@#$ the");
+        assertEquals("the", result);
+    }
+
+    @Test
+    public void specialCharsNotCountedWhenWithWord() {
+        String result = getLongestWord("the. the");
+        assertEquals("the", result);
+    }
 }
