@@ -3,9 +3,12 @@ package WordLengthTests;
 import org.junit.jupiter.api.Test;
 
 import static WordLengthPackage.WordLength.getLongestWord;
+import static WordLengthPackage.WordLength.getShortestWord;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WordLengthTest {
+
+    //Longest Word Tests
 
     @Test
     public void longestWordAtTheEnd() {
@@ -26,12 +29,6 @@ public class WordLengthTest {
     }
 
     @Test
-    public void emptySentence() {
-        String result = getLongestWord("");
-        assertEquals("", result);
-    }
-
-    @Test
     public void twoLongestWordsAlphabeticalShouldBeSecondary() {
         String result = getLongestWord("longest asdfghj");
         assertEquals("asdfghj", result);
@@ -44,14 +41,81 @@ public class WordLengthTest {
     }
 
     @Test
-    public void specialCharsNotCounted() {
+    public void twoLongestWordsAlphabeticalSCapitalShouldWin() {
+        String result = getLongestWord("and The");
+        assertEquals("The", result);
+    }
+
+    @Test
+    public void specialCharsNotCountedLongest() {
         String result = getLongestWord("@#@$@#$@%@@#$ the");
         assertEquals("the", result);
     }
 
     @Test
-    public void specialCharsNotCountedWhenWithWord() {
+    public void specialCharsNotCountedWhenWithWordLongest() {
         String result = getLongestWord("the. the");
         assertEquals("the", result);
     }
+
+
+    //Neither longest nor shortest
+    @Test
+    public void emptySentence() {
+        String result = getLongestWord("");
+        assertEquals("", result);
+    }
+
+
+    //Shortest Word Tests
+
+    @Test
+    public void shortestWordAtTheBeginning() {
+        String result = getShortestWord("The fox jumped");
+        assertEquals("The", result);
+    }
+
+    @Test
+    public void shortestWordAtTheEnd() {
+        String result = getShortestWord("Quick jumped fox");
+        assertEquals("fox", result);
+    }
+
+    @Test
+    public void shortestWordInTheMiddle() {
+        String result = getShortestWord("jumped fox water");
+        assertEquals("fox", result);
+    }
+
+
+    @Test
+    public void twoShortestWordsAlphabeticalShouldBeSecondary() {
+        String result = getShortestWord("the and");
+        assertEquals("and", result);
+    }
+
+    @Test
+    public void twoShortestWordsAlphabeticalShouldBeSecondaryOtherWay() {
+        String result = getShortestWord("and the");
+        assertEquals("and", result);
+    }
+
+    @Test
+    public void twoShortestWordsAlphabeticalCapitalShouldWin() {
+        String result = getShortestWord("and The");
+        assertEquals("The", result);
+    }
+
+    @Test
+    public void specialCharsNotCountedForShortest() {
+        String result = getShortestWord("@ the");
+        assertEquals("the", result);
+    }
+
+    @Test
+    public void specialCharsNotCountedWhenWithWordShortest() {
+        String result = getShortestWord("e. the");
+        assertEquals("the", result);
+    }
+
 }
