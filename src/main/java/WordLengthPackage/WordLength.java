@@ -12,7 +12,7 @@ public class WordLength {
     }
 
     public static String getLongestWord(String input) {
-        String cleanString = input.replaceAll("[^a-zA-Z0-9]", " ");
+        String cleanString = input.replaceAll("[^a-zA-Z0-9\\s]", "");
         String[] arrayOfString = cleanString.split(" ");
 
         List<String> list = Arrays.asList(arrayOfString);
@@ -22,7 +22,7 @@ public class WordLength {
     }
 
     public static String getShortestWord(String input) {
-        String cleanString = input.replaceAll("[^a-zA-Z0-9]", " ");
+        String cleanString = input.replaceAll("[^a-zA-Z0-9\\s]", "");
         String[] arrayOfString = cleanString.split(" ");
 
         List<String> list = Arrays.asList(arrayOfString);

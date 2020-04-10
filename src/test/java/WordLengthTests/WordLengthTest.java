@@ -1,5 +1,6 @@
 package WordLengthTests;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Test;
 
 import static WordLengthPackage.WordLength.getLongestWord;
@@ -26,6 +27,12 @@ public class WordLengthTest {
     public void longestWordInTheMiddle() {
         String result = getLongestWord("the jumped fox");
         assertEquals("jumped", result);
+    }
+
+    @Test
+    public void emptySentenceLongestMethod() {
+        String result = getLongestWord("");
+        assertEquals("", result);
     }
 
     @Test
@@ -59,14 +66,6 @@ public class WordLengthTest {
     }
 
 
-    //Neither longest nor shortest
-    @Test
-    public void emptySentence() {
-        String result = getLongestWord("");
-        assertEquals("", result);
-    }
-
-
     //Shortest Word Tests
 
     @Test
@@ -87,6 +86,11 @@ public class WordLengthTest {
         assertEquals("fox", result);
     }
 
+    @Test
+    public void emptySentenceShortestMethod() {
+        String result = getShortestWord("");
+        assertEquals("", result);
+    }
 
     @Test
     public void twoShortestWordsAlphabeticalShouldBeSecondary() {
@@ -106,16 +110,16 @@ public class WordLengthTest {
         assertEquals("The", result);
     }
 
-    @Test
-    public void specialCharsNotCountedForShortest() {
-        String result = getShortestWord("@ the");
+    @Ignore
+    public void shortestWordShouldNotBeSpecialChar() {
+        String result = getShortestWord(". the");
         assertEquals("the", result);
     }
 
     @Test
-    public void specialCharsNotCountedWhenWithWordShortest() {
-        String result = getShortestWord("e. the");
-        assertEquals("the", result);
+    public void specialCharsNotCountedForShortest() {
+        String result = getShortestWord("e........ the");
+        assertEquals("e", result);
     }
 
 }
