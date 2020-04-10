@@ -35,3 +35,21 @@ Results will print in the window below
 #### Command Line
 1) `cd` into the repo
 2) run `mvn test` and tests should print out
+The output should look similar to this.
+```[INFO] 
+   [INFO] -------------------------------------------------------
+   [INFO]  T E S T S
+   [INFO] -------------------------------------------------------
+   [INFO] Running WordLengthTests.WordLengthTest
+   [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in WordLengthTests.WordLengthTest
+   [INFO] 
+   [INFO] Results:
+   [INFO] 
+   [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+   [INFO] 
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  3.259 s
+   [INFO] Finished at: 2020-04-10T10:04:50-04:00
+   [INFO] ------------------------------------------------------------------------```
